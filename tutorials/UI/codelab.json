@@ -1,0 +1,22 @@
+{
+  "environment": "web",
+  "source": "UI.md",
+  "format": "html",
+  "prefix": "../../",
+  "mainga": "UA-49880327-14",
+  "updated": "2018-10-11T08:09:34-04:00",
+  "id": "1",
+  "duration": 0,
+  "title": "CS4518 Android Application UI Totorial",
+  "author": "Sam Ogden",
+  "summary": "CS4518 Android UI tutorial",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "ui"
+  ],
+  "tags": [],
+  "url": "1"
+}

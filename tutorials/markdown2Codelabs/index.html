@@ -1,0 +1,127 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>CS4518 How-to: generate codelab style tutorial from markdown</title>
+  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../elements/codelab.html">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <style is="custom-style">
+    body {
+      font-family: "Roboto",sans-serif;
+      background: var(--google-codelab-background, #F8F9FA);
+    }
+  </style>
+  
+</head>
+<body unresolved class="fullbleed">
+
+  <google-codelab title="CS4518 How-to: generate codelab style tutorial from markdown"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Overview of Tutorial" duration="0">
+        <p>This tutorial will show you how to setup the Codelabs management &amp; hosting tools <code>claat</code> in a Unix-based machine.</p>
+<aside class="special"><p>The tutorial is based on MacOS, but should be applicable to other Linux based environment.</p>
+</aside>
+<p>For more detail, refer to the <a href="https://github.com/googlecodelabs/tools" target="_blank">tool github</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Download the pre-compiled binary of 
+claat" duration="0">
+        <p>Go to the official release <a href="https://github.com/googlecodelabs/tools/releases/tag/v1.1.0" target="_blank">link</a> for the Codelabs command line tool <code>claat</code>, and download the binary according to your OS.</p>
+<p><img alt="Claat Binaries" src="img/a163c97ae699324b.png"><code>Fig: Precompiled Claat binaries for popular OSes.</code></p>
+<p>For example, if you have a recent MacOS, download the <code>claat-darwin-amd64</code> binary under <strong>Assets</strong> to a path, e.g., <code>~/Desktop</code>.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Write the tutorial in markdown" duration="0">
+        <p>Here is an example markdown, that contains the bare minimal. The first few lines contain the meta data that <code>claat</code> will parse. Among which, the important one is <code>id</code>.</p>
+<p><img alt="Example markdown" src="img/ace5d00dec3151c8.png"><code>Fig: An example markdown file called example_tutorial.md.</code></p>
+<aside class="special"><p>If you are not familiar of how to write markdown, the claat parser provides a very quick tutorial <a href="https://github.com/googlecodelabs/tools/tree/master/claat/parser/md" target="_blank">here</a>.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Generate the html" duration="0">
+        <p>Recall that we have saved the <code>claat</code> binary to <code>~/Desktop</code> in the previous step. By running the following commands in a terminal, you will see a similar output to the following screenshot. Inside the <code>exampleTutorial</code> directory, you will find the converted <code>index.html</code>.</p>
+<pre><code>cd ~/Desktop; 
+claat-darwin-amd64 export example_tutorial.md
+</code></pre>
+<p><img alt="Claat Export" src="img/271c970009df794a.png"><code>Fig: claat export terminal output</code></p>
+<aside class="special"><p>If you want to make the <code>claat</code> command accessible globally in your system, you could create a symbolic link of the downloaded binary into a binary directory that is included in $PATH. For example, <code>sudo ln -s /Users/tian/Desktop/claat-darwin-amd64 /usr/local/bin</code>.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Download the necessary codelab dependencies" duration="0">
+        <p>If we run the following commands, <code>claat</code> will automatically fetch the dependencies: <code>elements/</code> and <code>bower_components/</code>. These two directories contain javascript and style files that will be used by the <code>index.html</code></p>
+<pre><code>cd ~/Desktop
+claat-darwin-amd64 serve 
+</code></pre>
+<p>After downloading the dependencies, a local server is also created:</p>
+<p><img alt="Claat serve" src="img/886da4e784701b61.png"><code>Fig: claat starts a local server that listens at 9090 port.</code></p>
+<p>A new browser tab should open automatically for you, and display hyperlinks for all resources in the current directory, i.e., <code>~/Desktop</code>.</p>
+<p><img alt="Claat local server" src="img/ebfbf8bf4a250d8c.png"><code>Fig: claat starts a local server that listens at 9090 port.</code></p>
+<p>Click on the hyperlink <code>exampleTutorial/</code> will bring up the codelab style tutorial.</p>
+<p><img alt="Claat example tutorial" src="img/f050b72158cd0bb7.png"><code>Fig: codelab style tutorial served at localhost:9090.</code></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Hosting your own publicly available codelabs" duration="0">
+        <p>As explained in this <a href="https://github.com/googlecodelabs/tools" target="_blank">link</a>, most popular web servers should be able to host the generated codelab resources.</p>
+<p>In our example, simply upload the following three directories: <code>elements/</code>,  <code>bower_components/</code>, <code>exampleTutorial/</code> to your favorite web server.</p>
+<aside class="special"><p>Note you are not required to do so for our course projects. Simply checking that your markdown file can render correctly in a local server is sufficient.<br></p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Summary" duration="0">
+        <p>In this tutorial, we explain how to setup the official Codelabs management &amp; hosting tools in Unix-like environment, and how to verify that the markdown tutorial is rendered correctly in local host.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49880327-14', 'auto');
+
+    (function() {
+      var gaCodelab = '';
+      if (gaCodelab) {
+        ga('create', gaCodelab, 'auto', {name: 'codelab'});
+      }
+
+      var gaView;
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var param = parts[i].split('=');
+        if (param[0] === 'viewga') {
+          gaView = param[1];
+          break;
+        }
+      }
+      if (gaView && gaView !== gaCodelab) {
+        ga('create', gaView, 'auto', {name: 'view'});
+      }
+    })();
+  </script>
+
+</body>
+</html>

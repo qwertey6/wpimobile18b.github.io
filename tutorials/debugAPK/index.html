@@ -1,0 +1,100 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>CS4518 How-to: Debug APK</title>
+  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../elements/codelab.html">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <style is="custom-style">
+    body {
+      font-family: "Roboto",sans-serif;
+      background: var(--google-codelab-background, #F8F9FA);
+    }
+  </style>
+  
+</head>
+<body unresolved class="fullbleed">
+
+  <google-codelab title="CS4518 How-to: Debug APK"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Overview of Tutorial" duration="0">
+        <p>This tutorial will show you how to generate a debug APK to project submission.</p>
+<p>Prerequisites:</p>
+<ul>
+<li>Android Studio 3.2</li>
+<li>Android physical or virtual devices API 27</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Make sure your project code is complete" duration="0">
+        <p>After you finished your project code, and make sure that your app behaves as expected when running in physical device or AVD. That is, the Android Studio is able to install the app to the device.</p>
+<p><img src="img/fd786e2d46fe6492.png">Use the green arrow to run the app, or the lightening symbol to apply the change. <br><br></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Generate the up-to-date debug apk" duration="0">
+        <p>On the right side of Android Studio, click on the <code>Gradle</code> button, and that should bring out a floating window that looks similar to the following.</p>
+<p><img src="img/ec70be6f847073d4.png">Use the green arrow to run the app, or the lightening symbol to apply the change. <br><br></p>
+<p>Click <code>:app -&gt; Tasks -&gt; build</code> and then double click on the <code>assembleDebug</code></p>
+<p>At the bottom window of the Android Studio, you should immediately see similar output as following.</p>
+<p><img src="img/ecf7e7f868e37a57.png">Sample output of assembleDebug task.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Locate an existing debug apk" duration="0">
+        <p>You are now ready to locate the debug apk that is required for submission. In Android studio, switch from the default <code>Android</code> view to <code>Project</code> as shown below, and you should see <code>app-debug.apk</code> under the path <code>app/build/outputs/apk/debug/app-debug.apk</code></p>
+<p><img src="img/b13429183e0d981e.png">In Project view, the app-debug.apk is under the `app/build/outputs/apk/debug/` directory.<br><br></p>
+<p>Right click on the <code>app-debug.apk</code> and select <code>Reveal in Finder</code>. Copy and paste the debug apk to your project submission folder.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Summary" duration="0">
+        <p>In this tutorial, we use a predefined gradle task <code>assembleDebug</code> to generate the required debug apk. <strong>Note</strong> Please make sure that the <code>app-debug.apk</code> reflects the most recent modifications.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49880327-14', 'auto');
+
+    (function() {
+      var gaCodelab = '';
+      if (gaCodelab) {
+        ga('create', gaCodelab, 'auto', {name: 'codelab'});
+      }
+
+      var gaView;
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var param = parts[i].split('=');
+        if (param[0] === 'viewga') {
+          gaView = param[1];
+          break;
+        }
+      }
+      if (gaView && gaView !== gaCodelab) {
+        ga('create', gaView, 'auto', {name: 'view'});
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "environment": "web",
+  "source": "generateCodelabs.md",
+  "format": "html",
+  "prefix": "../../",
+  "mainga": "UA-49880327-14",
+  "updated": "2018-10-19T21:57:02-04:00",
+  "id": "markdown2Codelabs",
+  "duration": 0,
+  "title": "CS4518 How-to: generate codelab style tutorial from markdown",
+  "author": "Tian Guo",
+  "summary": "CS4518 How-to: generate codelab style tutorial from markdown",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "common"
+  ],
+  "tags": [],
+  "url": "markdown2Codelabs"
+}

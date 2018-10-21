@@ -1,0 +1,22 @@
+{
+  "environment": "web",
+  "source": "recordVideo.md",
+  "format": "html",
+  "prefix": "../../",
+  "mainga": "UA-49880327-14",
+  "updated": "2018-10-19T20:13:09-04:00",
+  "id": "recordVideo",
+  "duration": 0,
+  "title": "CS4518 How-to: Record App Video",
+  "author": "Tian Guo",
+  "summary": "CS4518 How-to: record app video tutorial",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "common"
+  ],
+  "tags": [],
+  "url": "recordVideo"
+}

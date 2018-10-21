@@ -1,0 +1,22 @@
+{
+  "environment": "web",
+  "source": "debug_apk.md",
+  "format": "html",
+  "prefix": "../../",
+  "mainga": "UA-49880327-14",
+  "updated": "2018-10-19T14:44:41-04:00",
+  "id": "0.1",
+  "duration": 0,
+  "title": "CS4518 How-to: Debug APK",
+  "author": "Tian Guo",
+  "summary": "CS4518 How-to generate debug apk tutorial",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "common"
+  ],
+  "tags": [],
+  "url": "0.1"
+}

@@ -1,0 +1,330 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>CS4518 Android Application UI Totorial</title>
+  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../elements/codelab.html">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <style is="custom-style">
+    body {
+      font-family: "Roboto",sans-serif;
+      background: var(--google-codelab-background, #F8F9FA);
+    }
+  </style>
+  
+</head>
+<body unresolved class="fullbleed">
+
+  <google-codelab title="CS4518 Android Application UI Totorial"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Overview of Tutorial" duration="0">
+        <p>This tutorial will show you how to create a UI for your Android app.  In this tutorial you will do the following:</p>
+<ul>
+<li>Make a button!</li>
+<li>Make another button!</li>
+<li>Put some text in!</li>
+<li>Maybe go crazy with a scrollwheel!</li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li>Android Studio Installed</li>
+<li>Android Phone supporting API 27 or later<br><br><ul>
+<li>Or ADK installed with API 27 or later</li>
+</ul>
+</li>
+</ul>
+<p>We recommend you&#39;ve programmed in Java before.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Make A New Project" duration="0">
+        <p>The first step to making a new application is to start a new project.</p>
+<h2>New project window</h2>
+<p>Conveniently, when you first open Android Studio it will ask you to start a new project.</p>
+<pre><code>- Note: If you already have a project open and want to start a new one then use the File &gt; New &gt; New Project... menu items
+</code></pre>
+<p>To get started click the &#34;Start a new Android Studio project&#34; button</p>
+<p><img alt="New Project window when all projects are closed" src="img/b8d745152b2dbd95.png"></p>
+<h2>Create Android Project</h2>
+<ul>
+<li>This brings you to the &#34;Create Android Project&#34; window where you enter information about your project.</li>
+<li>Application name it is best to pick something descriptive yet creative.<br><br><ul>
+<li>As you can see I went the purely boring descriptive path.</li>
+</ul>
+</li>
+<li>Your &#34;Company domain&#34; should be your username followed by your organization.<br><br><ul>
+<li>This can generally match your email, so mine is ssogden.wpi.  It&#39;s best to keep this simple because we will need it later on when debugging.</li>
+</ul>
+</li>
+<li>There are also options for C++ and Kotlin support.  We won&#39;t be going into these but you may want to use them for future projects!</li>
+</ul>
+<p><img alt="Create Android Project window with example inputs" src="img/8e4d6464ef71cfaf.png"></p>
+<h2>Target Android Devices</h2>
+<ul>
+<li>The next step is to choose which API you&#39;re targeting for your application</li>
+<li>This is more of an issue when using real devices</li>
+<li>Android OSes are generally backwards compatible but not necessarily forward compatible<br><br><ul>
+<li>That is, pick an older API is safer as it can run on newer devices</li>
+</ul>
+</li>
+<li>We&#39;re eschewing this advice and picking a recent API, API27<br><br><ul>
+<li>It has support for more deep learning features</li>
+</ul>
+</li>
+<li>For more information you can click on &#34;Help me choose&#34; which describes different API levels</li>
+</ul>
+<p><img alt="Target Android Devices window with API 27 selected" src="img/f6e894fe44893d3e.png"></p>
+<h2>Add an Activity to Mobile</h2>
+<ul>
+<li>Next, we select what kind of application we want to build</li>
+<li>To keep things simple we&#39;ll select &#34;Empty Activity&#34;</li>
+</ul>
+<p><img alt="Add an Activity to Mobile to choose what kind of application to build" src="img/e0c27f3f03f028b5.png"></p>
+<h2>Configure Activity</h2>
+<ul>
+<li>Finally, we configure the activity</li>
+<li>Since this will be the only real window of our basic application we&#39;ll leave it named &#34;MainActivity&#34;<br><br><ul>
+<li>Feel free to get more creative, but remember that the tutorial will be using &#34;MainActivity&#34;</li>
+<li>Helpful for more complex applications</li>
+</ul>
+</li>
+<li>Generally this can be left as is</li>
+</ul>
+<p><img alt="Configure Activity window to set activity name" src="img/2034eaf6fe3ae881.png"></p>
+<p>Hit Finish and you&#39;re good to go!</p>
+<h2>But wait....</h2>
+<p>....what&#39;s this error?</p>
+<p><img alt="An error on API compatiblility!?" src="img/8a2d4d20122cc588.png"></p>
+<ul>
+<li>This error is just telling us that we don&#39;t have any compatible systems to actually run our app on</li>
+<li>In the next step let&#39;s create an AVD for running our tests on</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Setup AVD" duration="0">
+        <p>Fixing the error we saw in the last step is easy, we just need to set up an Android Virtual Device (AVD) for our app to run on</p>
+<h2>Open AVD manager</h2>
+<ul>
+<li>To do this go to Tools &gt; Android &gt; AVD Manager menu to launch the AVD manager<br><br><ul>
+<li>Alternatively you can just hit the Run button and it will complain and pop you directly to setting up an AVD</li>
+</ul>
+</li>
+</ul>
+<p><img alt="AVD Manager Menu Path" src="img/1439b463e89ce59f.png"></p>
+<h2>Android Virtual Device Manager</h2>
+<ul>
+<li>This panel is extremely straightforward right now: just hit the &#34;Create Virtual Device&#34; button to get started<br><br><ul>
+<li>Later on there will be more options available on this page<br><br></li>
+</ul>
+</li>
+</ul>
+<h2>Create New AVD - Select Hardware</h2>
+<ul>
+<li>The first step to set up a new AVD is to select what hardware you want simulated</li>
+<li>This mostly affects what the AVD looks like and how big the screen simulated this<ul>
+<li>This affects the GUI by changing how big the different GUI elements can be</li>
+</ul>
+</li>
+<li>Let&#39;s pick the Pixel 2 device for now<ul>
+<li>It&#39;s a reasonably sized phone and if you have a physical one is a good device for mobile inference</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Select Hardward panel to choose screen size" src="img/3c3d95ab7e88f375.png"></p>
+<h2>API Selection</h2>
+<ul>
+<li>On this panel we select the API that we want to use</li>
+<li>Since we set up our application to work with API 27 we should select it<br><br><ul>
+<li>You may need to press the &#34;Download&#34; button next to the API 27 image if this is your first time running the AVD manager<br><br></li>
+</ul>
+</li>
+</ul>
+<p><img alt="System Image panel, showing API options" src="img/165af143952f94ef.png"></p>
+<h2>Android Virtual Device detail screen</h2>
+<ul>
+<li>This page is for customizing our AVD<br><br><ul>
+<li>Can be used to change the name, the orientation or even how much RAM is available to the Android OS</li>
+</ul>
+</li>
+<li>We&#39;re going to leave it largely as-is for right now</li>
+<li>Click the &#34;Finish button!&#34;</li>
+</ul>
+<p><img alt="Android Virtual Device customization" src="img/6680082420eae5ff.png"></p>
+<h2>Back to the Android Virtual Device Manager</h2>
+<ul>
+<li>We should now see our new virtual device listed in the Virtual Device Manager<br><br><ul>
+<li>There are also new options now from the drop-down arrow on the device but we&#39;ll use those later</li>
+</ul>
+</li>
+<li>Just close the Virtual Device Manager window and return to the main page</li>
+</ul>
+<p><img alt="Virtual device manager with an AVD listed" src="img/fd519f533272eb1a.png"></p>
+<h2>Back to the main page</h2>
+<ul>
+<li>Hit the &#34;Run&#34; button (green side-ways pointing triangle) and select your AVD from the list of Available Virtual Devices</li>
+<li>Your app</li>
+</ul>
+<p><img alt="AVD selection window" src="img/6713056b8dd98c92.png"></p>
+<ul>
+<li>Your AVD should launch and your error should now be gone!<br><br><ul>
+<li>This may take a little while to happen for two reasons.  Your AVD boots cold which is slow, and the &#34;android gradle&#34; needs to be built.</li>
+<li>Be patient!</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Android App running in AVD and the error message is gone!" src="img/c0d9f00a13766e33.png"></p>
+<p><em>Huh.  Looks kind of boring, doesn&#39;t it?<br>Let&#39;s see if we can&#39;t fix that, shall we?</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Making your first GUI!" duration="0">
+        <p>Now that we have all the background set up its time to start making your GUI.<br>The first step is to open up the graphical layout so you can place buttons more easily.<br>This is found either along the top bar, as &#34;activity_main.xml,&#34; or in the project filedraw under app &gt; res &gt; layout &gt; activity_main.xml.</p>
+<p><img alt="activity_main.xml locations" src="img/b7fdbf5e5bcac706.png"></p>
+<p>Once you have your activity_main.xml screen open it should look like the below:</p>
+<p><img alt="activity_main.xml screen layout" src="img/3285550f379fa2ff.png"></p>
+<p>On the lefthand side of this picture are quick links to various kinds of elements while the rightside consists of a blueprint of the layout.<br>In the blueprint right now you can see that there is one element already, the &#34;Hello world!&#34; text that can be seen in the previous section and is added by default.<br>The zig-zag lines indicate that this text has constraints on it to keep it a relative distance to each of the edges indicated by the lines.</p>
+<p><em>For this tutorial we&#39;re going to be implementing this from scratch so delete this text by clicking on it and pressing the backspace button.</em></p>
+<h2>Adding your first GUI element</h2>
+<aside class="special"><p>You can take advantage of auto-constraints by first selecting the rectangle in your blueprint and then dragging your button until dotted lines show up, as in the picture below.</p>
+</aside>
+<p>ur blueprint and then dragging your button until dotted lines show up, as in the picture below.</p>
+<p><img alt="Adding a button element to the blueprint and letting Android Studio take care of constraints" src="img/d3a57f96e1a472c6.png"></p>
+<p><img alt="Blueprint with constraints automatically added" src="img/24b6abd60bf03ba3.png"></p>
+<p><img alt="Blueprint with attribute panel" src="img/fdc20ef352c4a7ec.png"></p>
+<p>You can also customize your button via its attributes panel.  This pannel is shown to the right of the blueprint when you select your button.<br>This can be used to change things about the button such as the text therein, which is controlled via the TextView &gt; text attribute.<br>One attribute you should change is the ID up at the top of the pannel.  This is how we&#39;ll be referring to this element in our code so it&#39;s best to pick something descriptive.  I&#39;m going to change mine to goButton.</p>
+<h2>A quick word on constraints</h2>
+<p>Constraints make your application look good.<br>They determine how close or far elements are to each other and to the sides.<br>They also can be tricky to set correctly in complex layouts.</p>
+<p><em>I won&#39;t be going into great detail about how to set constraints in this tutorial.  Instead I&#39;ll be largely using automatically set constraints.  There are other, more detailed tutorials about how to make pretty GUIs I recommend you check out.</em></p>
+<p>All that said, constraints are controlled by defining relationships between elements (dragging from the little circle on the side of an element to another element), and using the attributes panel to define how you want them to be enforced.</p>
+<p>There are three types of constraints used in Android</p>
+<ol type="1">
+<li><em>Fixed</em>: The width of the element is fixed at all times and the element floats relative to other objects</li>
+<li><em>Wrap content</em>: The element will expand to fit its contents and float relative to other objects</li>
+<li><em>Math constraints</em>: The element will expand as much as possible to fill all the space it can between it and other objects.</li>
+</ol>
+<p>More details on constraints can be found at <a href="https://developer.android.com/training/constraint-layout/" target="_blank">https://developer.android.com/training/constraint-layout/</a></p>
+<h2>Check your GUI out!</h2>
+<p>Press the &#34;Run&#34; button (or hit cntl-R) and select your AVD and your app should will run.</p>
+<p><img alt="Your button in your GUI!" src="img/4165484ce73c9219.png"></p>
+<p>It&#39;s exciting, but isn&#39;t that GUI a little bit boring?<br>Let&#39;s make it a tiny bit more exciting in the next step, shall we?</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Adding pictures to your GUI" duration="0">
+        <p>In order to fix how boring our app currently is let&#39;s add in some cute cat pictures! (Note: feel free to use puppy pictures instead)</p>
+<h2>Setup</h2>
+<p>First off, we need to create an assets folder to keep our photos of kittens.  We do this by right-clicking on the &#34;app&#34; in the project explorer and navigating to New &gt; Folder &gt; Assets Folder.</p>
+<p><img alt="Create Assets folder menu" src="img/ff73f9c0a4fee543.png"></p>
+<p>This brings up a dialogue where you have nothing to do but press &#34;Finish&#34;.  Super simple, right?</p>
+<p><img alt="Create Assets folder dialogue" src="img/7daf8ad212438549.png"></p>
+<p><em>But wait, there&#39;s more!</em><br>While you can stop here, it&#39;s always best to keep folders so you can be organized.  So let&#39;s make a directory inside our new assets folder.  To do this, right-click on the assets folder and navigate to New &gt; Directory and give it a name.  Mine&#39;s going to be kitten_pictures.<br>This folder should now show up in our app directory tree.</p>
+<p><img alt="App directory tree with kitten_pictures folder" src="img/e49b2b9ffde672d4.png"></p>
+<h2>Storing pictures to your project</h2>
+<p>Adding pictures to your folders is super simple:  You just drag them to it.  This may not work directly from your browser but you can drag from your desktop and they will be copied over.  A quick dialogue will show up to ask if you want to change their name or update references to them, but you can generally just click &#34;OK&#34; for this and they&#39;ll be added in.<br>Android Studio may open up the photos for you to edit them but you can just close them again if it does so.</p>
+<aside class="special"><p>You can also add the photos through your normal explorer window by opening the folder using the right-click menu or finding it manually.</p>
+</aside>
+<p><em>Add 5 or so photos to your assets folder – we&#39;ll be using them later on</em></p>
+<h2>Adding an ImageView to your layout</h2>
+<p>Adding an ImageView element to your layout is similar to adding a button, but with one added step.<br>First, find the ImageView element from your palette.  You can do this under all, or you can select just images.<br>Next, click and drag the &#34;ImageView&#34; element from the palette to your layout, just like you did with the Button element.  As before, it&#39;s recommended you try to take advantage of the auto-constraints added by Android Studio, as seen below.</p>
+<p><img alt="Adding an ImageView element to the layout" src="img/11bd7178d5e0d05a.png"></p>
+<p>When you let got it will pop up and give you a list of Resources to choose from.  These are, for our purpose, essentially placeholder images so just pick &#34;ic_launcher.&#34;</p>
+<p><img alt="Choosing a default resource image for our ImageViwer" src="img/6c0d5460a8bd8e58.png"></p>
+<p>You&#39;ll now see the ImageView show up in your layout.  Click on it and on the attributes pannel to the right you can give it a name.  Mine is named &#34;kittenView&#34; since that is what it will be used for.  As with the button element, this is how we&#39;ll be referring to this element in our code so it&#39;s best to pick something descriptive.</p>
+<p><img alt="ImageView with attribute panel" src="img/3322d858c99fc90c.png"></p>
+<p>Hit the run button and we can see the default image show up in our AVD.</p>
+<p><img alt="Default image in AVD" src="img/1fe86e72a236cb16.png"></p>
+<h2>Making <em>your</em> image show in your ImageView</h2>
+<p>Now that we have the placeholder, it&#39;s time to fill it with stuff.<br>That means it&#39;s time to code!</p>
+<p>Open your MainActivity.java file and find your OnCreate function.  It should be the only one there so it should be easy to find.<br>This function is run when this view first appears.  If you want anything run whenever you launch your app, such as setting an image in your ImageView, it should go here.</p>
+<p>To display your image there are three aspects that need to be taken care of.</p>
+<ol type="1">
+<li>Access the ImageView that you want to put the picture in.  This is done by selecting it by the ID we assigned earlier.<br><br><ul>
+<li><code>ImageView mKittenView = (ImageView) findViewById(R.id.kittenView);</code></li>
+</ul>
+</li>
+<li>Load your targetted image from assets<br><br><ul>
+<li><code>image_stream = getAssets().open(path_to_picture_in_assets)</code></li>
+</ul>
+</li>
+<li>Set the ImageView to display your image<br><br><ul>
+<li><code>mImageView.setImageBitmap(BitmapFactory.decodeStream(image_stream))</code></li>
+</ul>
+</li>
+</ol>
+<p>Put these all together in your code, referencing your own ImageView and photos, and you should have a brand new app to run.</p>
+<p>Push the run button and you&#39;ll see your new app pop up with an image and a button!</p>
+<p><img alt="Hopefully you picked cute animal pictures, too, so your app is this cute" src="img/197a137fe0991cc5.png"></p>
+<p><em>But wait, what about that button?  Is it really not going to do anything?</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Making the button useful" duration="0">
+        <p>It&#39;s kind of weird that we have a button that does nothing, right?  So let&#39;s make it do something.  The first step is to set up the hook that will be called when the button is clicked.</p>
+<h2>Programatic hooks</h2>
+<p>In order to implement a button click, we need to make a method when the button is clicked.  This method should be in MainActivity.java and be a void-type as well as taking a View as an argument.  The basic outline is as below:</p>
+<pre><code>public void onClickGoButton(View v){
+    //Add your code here
+}
+</code></pre>
+<h2>Enabling button click method</h2>
+<p>Now that we have the method that will execute, even if it is just an outline, we can set up the connection between the button element and this hook.<br>To do so, pull up the layout file, activity_main.xml, again.  Click on your button element and look for &#34;onClick&#34; in its attributes.  From the dropdown menu select your hook function that you wrote above.</p>
+<p><img alt="Selecting onClick action for Button element" src="img/19cd0261a106254a.png"></p>
+<h2>Connecting you ImageView element with your Button element</h2>
+<p>The final step is making your button do something interesting when you click it.</p>
+<p><em>How about making it so it changes the photo to something random?</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Summary" duration="0">
+        <p>In this tutorial we&#39;ve covered how to set up Android Studio and an Android Virtual Device.  Also, we&#39;ve programmed our first GUI application that displays images and has a button that you can click!</p>
+<p>On your own you should&#39;ve put in all the code as well as making the button change to a random photo.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49880327-14', 'auto');
+
+    (function() {
+      var gaCodelab = '';
+      if (gaCodelab) {
+        ga('create', gaCodelab, 'auto', {name: 'codelab'});
+      }
+
+      var gaView;
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var param = parts[i].split('=');
+        if (param[0] === 'viewga') {
+          gaView = param[1];
+          break;
+        }
+      }
+      if (gaView && gaView !== gaCodelab) {
+        ga('create', gaView, 'auto', {name: 'view'});
+      }
+    })();
+  </script>
+
+</body>
+</html>
