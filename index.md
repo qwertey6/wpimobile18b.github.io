@@ -19,13 +19,13 @@ layout: home
 
 | Lecture | Description | Readings| Due | 
 |-------|--------|---------|
-| Lecture 1 | Intro to Mobile and Ubiquitous Computing <br> First Android App | [reading 1](url) | [final project](url), proposal/deliverable due Nov. 30/Dec. 13 11:59:59PM <br>  [project 1](url), due Tuesday Oct. 30 11:59:59PM
+| Lecture 1 | Intro to Mobile and Ubiquitous Computing <br> First Android App | [reading 1](https://ia.wpi.edu/cs4518/resources.php) | [group project](https://ia.wpi.edu/cs4518/resources.php), proposal/deliverable due Nov. 30/Dec. 13 11:59:59PM <br>  [project 1](https://ia.wpi.edu/cs4518/resources.php), due Tuesday Oct. 30 11:59:59PM
 | Lecture 2 | Android Basic | [reading 2](url)  | [topic survey](url), proposal/deliverable due Nov. 2/Nov. 19 11:59:59PM <br>
-| Lecture 3 | Mobile Data Acquisition: part 1  | [reading 3](url)    | [project 2](url), due Nov. 6 11:59:59PM 
+| Lecture 3 | Mobile Data Acquisition: part 1  | [reading 3](url)    | [project 2](url), due Tuesday Nov. 6 11:59:59PM 
 | Lecture 4 | Mobile Data Acquisition: part 2  |[reading 4](url)  |
-| Lecture 5 | Mobile Data Storage: part 1   | [reading 5](url) | [project 3](url), due Nov. 13 11:59:59PM 
+| Lecture 5 | Mobile Data Storage: part 1   | [reading 5](url) | [project 3](url), due Tuesday Nov. 13 11:59:59PM 
 | Lecture 6 | Mobile Data Storage: part 2 | [reading 6](url) |
-| Lecture 7 | Data manipulation: part 1 | [reading 7](url) | [project 4](url), due Nov. 20 11:59:59PM 
+| Lecture 7 | Data manipulation: part 1 | [reading 7](url) | [project 4](url), due Tuesday Nov. 20 11:59:59PM 
 | Lecture 8 | Data manipulation: part 2 | [reading 8](url) |
 | Lecture 9 | Student Presentations: Topic Survey | [reading 9](url) | 
 | Lecture 10 | Android Internals: part 1  | [reading 10](url) |

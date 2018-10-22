@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Syllabus (in progress)
+title: Syllabus
 permalink: /syllabus/
 ---
 
