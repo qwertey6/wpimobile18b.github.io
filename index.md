@@ -14,13 +14,14 @@ layout: home
 
 ## Announcements ##
 - The course schedule will be updated along with the course.
+- Oct 23: updated **readings 1**, **group project description** for partner evaluation; uploaded **lecture 1**, **reading 2**, **topic survey description**. 
 
 ## Schedule  ##
 
 | Lecture | Description | Readings| Due | 
 |-------|--------|---------|
-| Lecture 1 | Intro to Mobile and Ubiquitous Computing <br> First Android App | [reading 1](https://ia.wpi.edu/cs4518/resources.php) | [group project](https://ia.wpi.edu/cs4518/resources.php), proposal/deliverable due Nov. 30/Dec. 13 11:59:59PM <br>  [project 1](https://ia.wpi.edu/cs4518/resources.php), due Tuesday Oct. 30 11:59:59PM
-| Lecture 2 | Android Basic | [reading 2](url)  | [topic survey](url), proposal/deliverable due Nov. 2/Nov. 19 11:59:59PM <br>
+| Lecture 1 | [Intro to Mobile and Ubiquitous Computing <br> Android Basic](https://ia.wpi.edu/cs4518/resources.php) | [reading 1](https://ia.wpi.edu/cs4518/resources.php) | [group project](https://ia.wpi.edu/cs4518/resources.php), proposal/deliverable due Nov. 30/Dec. 13 11:59:59PM <br>  [project 1](https://ia.wpi.edu/cs4518/resources.php), due Tuesday Oct. 30 11:59:59PM
+| Lecture 2 | Android Basic | [reading 2](https://ia.wpi.edu/cs4518/resources.php)  | [topic survey](https://ia.wpi.edu/cs4518/resources.php), proposal/deliverable due Nov. 2/Nov. 19 11:59:59PM <br>
 | Lecture 3 | Mobile Data Acquisition: part 1  | [reading 3](url)    | [project 2](url), due Tuesday Nov. 6 11:59:59PM 
 | Lecture 4 | Mobile Data Acquisition: part 2  |[reading 4](url)  |
 | Lecture 5 | Mobile Data Storage: part 1   | [reading 5](url) | [project 3](url), due Tuesday Nov. 13 11:59:59PM 
