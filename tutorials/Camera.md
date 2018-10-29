@@ -1,32 +1,32 @@
 author: Sam Ogden
 summary: CS4518 Android Sensor Tutorial
-id: 2.1
+id: Camera
 categories: Sensors, Camera
 environment: java
 status: draft
 
 
 
-# CS4518 Android Application Sensors Totorial
+# CS4518 Android Application Sensors Tutorial
 ## Overview of Tutorial
 Duration: ???
 
-This tutorial will show you how to capture and storage images for your Android app.  In this tutorial you will do the following:
+This tutorial will show you how to capture and save images for your Android app.  In this tutorial you will do the following:
 
 - Capture input from a camera
 - Save files to the Android filesystem
 - Save the universe [to internal storage]!
 
-Prerequsites:
+Prerequisites:
 - Android Studio Installed
 - AVD with API 27 or higher
-- Background knowledge on how to create a GUI
-    - If necessary, consult the tutorial on GUI creation
+- Background knowledge on how to create UI in Android
+    - If necessary, consult the UI tutorial provided [here](https://wpimobile18b.github.io/tutorials/UI/)
 
 ## Make a New Project
 Duration: 5 minutes
 
-Similar to the UI tutorial you'll want to set up a new project.  This time, like last time, make it a blank project.
+Similar to the UI tutorial you'll want to set up a new project.  This time, like last time, make it a **blank** project.
 The only difference is that now you should name it something along the lines of "Camera Tutorial" because I am still boring.
 Again, pick an empty activity since it's more fun for us to build from scratch!
 
@@ -34,11 +34,15 @@ Again, pick an empty activity since it's more fun for us to build from scratch!
 
 
 ## Setting the manifest
-Since we are using a camera in our appliation we need to make this concrete and ensure that we don't get installed on any device that doesn't have a camera.
+Since we are using a camera in our application, we need to ensure that our app will not get installed on any device that does not have a camera.
 To do this we need to add a few lines to the manifest file.
 
-The manifest file is [convinneintly] located in the manifests folder.  Double click on it to open it.
+The manifest file is *conveniently* located in the manifests folder.  Double click on it to open it.
 ![Manifest file location](imgs/Camera/Manifest.0.png)
+
+Positive
+: Note that if you have switched from the default **Android** view to **Project** view, you can locate the manifest file in `app/src/main/AndroidManifest.xml`
+
 
 Below the "application" entry add in another entry of the below:
 ```
@@ -46,9 +50,12 @@ Below the "application" entry add in another entry of the below:
     <uses-feature android:name="android.hardware.camera"
                   android:required="true" />
 ```
-This alerts the app store that this app requires the use of the camera and not using it would cause major functional problems for the app.
+This alerts the Google Play app store that this app requires the use of the camera and not using it would cause major functional problems for the app. 
 
-There is one more addition that we need to make to the manifests file.  Specifically, to save the photos we take to storage we need to get permission to save the image to storage.  To do this add the `uses-permission` manifest entry:
+Positive
+: By setting the above filter explicitly, Google Play app store will not display our app to any devices that do not have a camera. 
+
+There is one more addition that we need to make to the manifests file.  Specifically, to save the photos we take to storage, we need to get permission to save the image to storage.  To do this add the `uses-permission` manifest entry:
 ```
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
@@ -56,16 +63,16 @@ There is one more addition that we need to make to the manifests file.  Specific
 Now we should be good to go to start building our application!
 
 
-## Building our GUI
+## Building our Camera UI
 Duration: 10 minutes
 
-Because we want to keep our app simple we want our GUI to have three things.  First, we want a button to click in order to take a picture.  Second, we want a imageview to display the picture that we've just taken.  Finally, let's add in a text box so we can display the name and path of the picture we've just taken.
+Because we want to keep our app simple we want our GUI to have three things.  First, we want a button to click in order to take a picture.  Second, we want a ImageView to display the picture that we've just taken.  Finally, let's add in a text box so we can display the name and path of the picture we've just taken.
 
 Putting this together should be a breeze if you've gone through the first tutorial.  The only addition is a TextView (so it displays text but doesn't accept input text).  With a little effort you should end up with a GUI similar to the one below:
 ![GUI layout to mimick](imgs/Camera/GUI.0.png)
 
-Negative:
-Note that there are a number of warnings thrown in these steps.  Feel free to fix them as recommended, but it isn't strictly needed.
+Negative
+: Note that there are a number of warnings thrown in these steps.  Feel free to fix them as recommended, but it isn't strictly needed.
 
 
 ## Taking a picture!
@@ -75,22 +82,23 @@ Duration: 10 minutes
 The most basic function of this app is to take a picture when you click the button.  To do this we'll be creating an intent object and starting the activity to take the picture.  There are three main components to this.
 1. `Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);`
     - This call creates the intent object with the specific intent being to capture an image
-2. `takePictureIntent.resolveActivity(getPackageManager())`
-    - This call determines what application will be used to fufill the intent.
-    - By default this is the camera app on android.
-    - If this returns null it means that there is no app installed that can perform the appropriate action.
+2. `List<ResolveInfo> activities = packageManager.queryIntentActivities(takePictureIntent, 0);`
+    - This call checks if our implicit intent can be resolved. 
+    - We should only start the activity if the returned list has more than one matches. 
+    - By passing a flag of 0, we are ignoring all other defined constants for PackageManager.
 3. `startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);`
     - This kicks of the activity related to the intent, in this case taking a picture.
-    - The last part of this call, `REQUEST_IMAGE_CAPTURE` is an integer that is used to indentify different intents.  This will be important in just a moment so make sure to define it somewhere it can be used across the app.
+    - The last part of this call, `REQUEST_IMAGE_CAPTURE` is an integer that is used to identify different intents.  This will be important in just a moment so make sure to define it somewhere it can be used across the app.
 
 These three components should be done when you click your button so it kicks off the photo-taking activity.
+
 
 ### Displaying the image!
 
 Okay, so we've now sent off to take a picture.  It works pretty well, right?  But nothing else happens...
-So we need to do something when the result activity.
+So we need to do something when the child activity finishes. 
 
-Catching an activity result is as easy as overriding the void function onActivityResult, as below.
+Catching an activity result in the parent activity is as easy as overriding the void function onActivityResult, as below.
 
 ```
 @Override
@@ -99,15 +107,18 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-Within this function we need to do two first.
+Within this function we need to do two things.
 
 First, we need to verify that the requestCode matches the one we previously set (i.e. `REQUEST_IMAGE_CAPTURE`).  While you're at it you should also make sure that the resultCode is an acceptable value.
 
 Second, we need to do something.  In our case we'll just be grabbing an automatically generated thumbnail from the "extras" of the Intent data.  This works for a simple and quick image capture.
-We do this by first getting the extras bundle from the Intent bitmap data using `data.getExtras().get("data")`.  This data needs to be cast to a Bitmap type and then set using the same technique we used in the GUI tutorial.
+We do this by first getting the extras bundle from the Intent bitmap data using `data.getExtras().get("data")`.  This data needs to be cast to a Bitmap type and then set using the same technique we used in the UI tutorial.
 
 After you are done run your application to check out your new image capture!
-Note: The first time you run this application on your AVD it will "setup" the camera.  This will interrupt the flow of your prorgram and you'll need to switch back to your app and click the button again.  
+
+Negative
+: The first time you run this application on your AVD it will "setup" the camera.  This will interrupt the flow of your prorgram and you'll need to switch back to your app and click the button again.  
+
 ![Thumbnail image showing after image capture](imgs/Camera/TakeAPicture.0.png)
 
 Wow, that looks cool!  But kinda lousy, too, because that thumbnail is terribly small.  How can we fix that?
@@ -122,7 +133,7 @@ Saving a photo requires first generating a temp file and passing its URI to the 
 
 ### Generating a file destination for the image
 
-First, we need a directory to store our photos in.  We get this by calling `getExternalFilesDir(Environment.DIRECTORY_PICTURES)` which allows gives us a `File` object to use as a directory to save to.
+First, we need a directory to store our photos in.  We get this by calling `getExternalFilesDir(Environment.DIRECTORY_PICTURES)` which gives us a `File` object to use as a directory to save to.
 The next step is to create a temporary file using `File.createTempFile(_filename_, _suffix_, _dir_)`.  This call returns a `File` object that we can use for our image.
 
 
@@ -143,11 +154,12 @@ This is because this file you created and passed to the Intent is actually priva
 To remedy this we need to define a **provider** in order to share files across application boundaries.  We need to do four things to do this.
 
 #### Updating your gradle
-Negative:
-Heads up, you'll need an internet connection for modifying your gradle as it will download new files.
+
+Negative
+: Heads up, you'll need an internet connection for modifying your gradle as it will download new files.
 
 You need to add `compile 'com.android.support:support-v4:<version>'` to your app's build.gradle file where `<version>` is set to your target SDK level.  
-The specific file you want, as there are two build.gradle files, is the one that is annotated with "Module: app".
+The specific file you want, as there are two build.gradle files, is the one that is annotated with "Module: app" in *Android* view or `app/build.gradle` in *Project* view.
 Your gradle will prompt you to sync, which can take a little while as it collects the appropriate files.
 
 #### Updating your manifest
@@ -164,10 +176,10 @@ Next, you need to modify your manifest to indicate that your app will be sharing
 </provider>
 ```
 
-After adding this you may notie that `@xml/filepaths` is highlighted in red as an error saying it can't resolve it.  We next take care of that
+After adding this you may notie that `@xml/filepaths` is highlighted in red as an error saying it can't resolve it.  We next take care of that.
 
 #### Add filepaths
-Finally, you need to add a resource file with the path res/xml/filepaths.xml.
+Finally, you need to add a resource file with the path `res/xml/filepaths.xml`.
 You do this by right-clicking on your app and telling it to add in an XML resource file named "filepaths".
 Replace the contents of this file with the following snippet, again paying attention to the identifier string.
 ```

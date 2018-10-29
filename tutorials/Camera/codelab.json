@@ -1,0 +1,23 @@
+{
+  "environment": "web",
+  "source": "Camera.md",
+  "format": "html",
+  "prefix": "../../",
+  "mainga": "UA-49880327-14",
+  "updated": "2018-10-29T08:57:16-04:00",
+  "id": "Camera",
+  "duration": 0,
+  "title": "CS4518 Android Application Sensors Tutorial",
+  "author": "Sam Ogden",
+  "summary": "CS4518 Android Sensor Tutorial",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "sensors",
+    "camera"
+  ],
+  "tags": [],
+  "url": "Camera"
+}
