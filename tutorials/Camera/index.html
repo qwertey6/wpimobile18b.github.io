@@ -71,7 +71,7 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Building our GUI" duration="0">
+      <google-codelab-step label="Building our Camera UI" duration="0">
         <p>Because we want to keep our app simple we want our GUI to have three things.  First, we want a button to click in order to take a picture.  Second, we want a ImageView to display the picture that we&#39;ve just taken.  Finally, let&#39;s add in a text box so we can display the name and path of the picture we&#39;ve just taken.</p>
 <p>Putting this together should be a breeze if you&#39;ve gone through the first tutorial.  The only addition is a TextView (so it displays text but doesn&#39;t accept input text).  With a little effort you should end up with a GUI similar to the one below:<br><img alt="GUI layout to mimick" src="img/ea25c4648b0c0ae7.png"></p>
 <aside class="warning"><p>Note that there are a number of warnings thrown in these steps.  Feel free to fix them as recommended, but it isn&#39;t strictly needed.</p>
@@ -101,6 +101,8 @@
 </li>
 </ol>
 <p>These three components should be done when you click your button so it kicks off the photo-taking activity.</p>
+<aside class="special"><p>For step 2 above, we could also use the <code>takePictureIntent.resolveActivity(getPackageManager()) != null</code> to make sure the implicit intent can at least resolve to the default activity.</p>
+</aside>
 <h2>Displaying the image!</h2>
 <p>Okay, so we&#39;ve now sent off to take a picture.  It works pretty well, right?  But nothing else happens...<br>So we need to do something when the child activity finishes.</p>
 <p>Catching an activity result in the parent activity is as easy as overriding the void function onActivityResult, as below.</p>

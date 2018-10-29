@@ -92,6 +92,10 @@ The most basic function of this app is to take a picture when you click the butt
 
 These three components should be done when you click your button so it kicks off the photo-taking activity.
 
+Positive
+: For step 2 above, we could also use the `takePictureIntent.resolveActivity(getPackageManager()) != null` to make sure the implicit intent can at least resolve to the default activity. 
+
+
 
 ### Displaying the image!
 
