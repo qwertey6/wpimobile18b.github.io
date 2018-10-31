@@ -13,7 +13,7 @@ layout: home
 > This course will provide an in-depth study of design and implementation challenges in building modern mobile applications. Topics to be expected include Android ecosystems, basic Android development based on Java SDK, design considerations of mobile-specific optimizations.Proficiency in Java is strongly recommended. Knowledge of operating systems, computer networks, and Linux command lines are essential. 
 
 ## Announcements
-Please refer to [here](/revisions) for a complete list of past announcements. 
+Please refer to [here](/revisions/) for a complete list of past announcements. 
 
 - Oct 27: uploaded **readings 3** and **readings 4**. 
 - Oct 31: uploaded **lecture 3** and **project 2**; updated **topic survey description**. 

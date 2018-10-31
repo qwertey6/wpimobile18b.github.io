@@ -32,6 +32,7 @@ theme: minima
 
 header_pages:
   - syllabus.md
+  - update_history.md
 
 # code highlight with rouge: https://sacha.me/articles/jekyll-rouge/
 highlighter: rouge
