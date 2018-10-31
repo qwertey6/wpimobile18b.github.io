@@ -7,7 +7,7 @@ layout: home
 **Class:** Tuesdays and Fridays, 8AM to 9:50AM in FL320 
 **Office Hours:**
   * Prof. Guo: Fridays, 10-11AM in Fuller 138. Or by appointment. 
-  * Hamid (TA): Mondays, 4-6PM, Thursdays, ~~3-5PM~~, __5:30-7:30pm__ Fuller Zoo Lab 
+  * Hamid (TA): Mondays, 4-6PM, Thursdays, ~~3-5PM~~, __5:30-7:30pm__, Fuller Zoo Lab 
   * Mario (SA): Tuesdays, 4-6PM, Wednesdays, 5-7PM, Fuller Zoo Lab 
 
 > This course will provide an in-depth study of design and implementation challenges in building modern mobile applications. Topics to be expected include Android ecosystems, basic Android development based on Java SDK, design considerations of mobile-specific optimizations.Proficiency in Java is strongly recommended. Knowledge of operating systems, computer networks, and Linux command lines are essential. 
