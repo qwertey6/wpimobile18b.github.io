@@ -138,7 +138,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 <h3>Updating your gradle</h3>
 <aside class="warning"><p>Heads up, you&#39;ll need an internet connection for modifying your gradle as it will download new files.</p>
 </aside>
-<p>You need to add <code>compile &#39;com.android.support:support-v4:&lt;version&gt;&#39;</code> to your app&#39;s build.gradle file where <code>&lt;version&gt;</code> is set to your target SDK level.<br><br>The specific file you want, as there are two build.gradle files, is the one that is annotated with &#34;Module: app&#34; in <em>Android</em> view or <code>app/build.gradle</code> in <em>Project</em> view.<br>Your gradle will prompt you to sync, which can take a little while as it collects the appropriate files.</p>
+<p>You need to add <code>implementation &#39;'com.android.support:support-v4:&lt;version&gt;&#39;</code> to your app&#39;s build.gradle file where <code>&lt;version&gt;</code> is set to your target SDK level.<br><br>The specific file you want, as there are two build.gradle files, is the one that is annotated with &#34;Module: app&#34; in <em>Android</em> view or <code>app/build.gradle</code> in <em>Project</em> view.<br>Your gradle will prompt you to sync, which can take a little while as it collects the appropriate files.</p>
 <h3>Updating your manifest</h3>
 <p>Next, you need to modify your manifest to indicate that your app will be sharing files.  To do this add the following snippet to your manifest under application.  Don&#39;t forget to update the authorities!</p>
 <pre><code>&lt;provider
